@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_surveillance__mortality_by_state
+    description: "Cleaned P&I mortality by state. One row per state per week per age group."
+    columns:
+      - name: state
+        tests:
+          - not_null
+      - name: year
+        tests:
+          - not_null
+      - name: week
+        tests:
+          - not_null
+      - name: geoid
+        tests:
+          - accepted_values:
+              config:
+                severity: warn
+              arguments:
+                values:
+                  - State
+                  - Region
+                  - National
+ 
+ 
+  - name: stg_surveillance__weekly_deaths
+    description: "Cleaned weekly provisional deaths. One row per jurisdiction per week"
+    columns:
+      - name: week_ending_date
+        tests:
+          - not_null
+      - name: jurisdiction
+        tests:
+          - not_null
+      - name: mmwr_year
+        tests:
+          - not_null
+  
+  - name: stg_surveillance__test_positivity
+    description: "Cleaned weekly test positivity by pathogen"
+    columns:
+      - name: week_end
+        tests:
+          - not_null
+      - name: pathogen
+        tests:
+          - not_null
+      - name: pct_positive
+        tests:
+          - not_null

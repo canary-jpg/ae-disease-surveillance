@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: fct_influenza_forecast
+    description: "8-week ahead influenza mortality forecast from Prophet model.
+      One row per forecast week. Includes prediction intervals and alert levels."
+    columns:
+      - name: forecast_date
+        tests:
+          - unique
+          - not_null
+      - name: forecast_alert_level
+        arguments:
+            values:
+              - normal
+              - watch
+              - elevated
+              - high_alert
+      - name: horizon_weeks
+        tests:
+          - not_null

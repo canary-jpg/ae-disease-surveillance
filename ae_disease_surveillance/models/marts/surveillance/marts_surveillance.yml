@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: fct_weekly_deaths
+    description: "National weekly deaths with rolling averages, zscore,
+      and week-over-week changes. One row per week for the United States."
+    columns:
+      - name: week_ending_date
+        tests:
+          - unique
+          - not_null
+      - name: flu_season_period
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - early_season
+                  - peak_season
+                  - off_season
+
+  - name: fct_outbreak_flags
+    description: "Weekly outbreak detection flags using z-score and CUMSUM
+      methods. One row per week with alert levels."
+    columns:
+      - name: week_ending_date
+        tests:
+          - unique
+          - not_null
+      - name: alert_level
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - normal
+                  - watch
+                  - elevated
+                  - high_alert
+  
+  - name: fct_state_mortality
+    description: "State-level P&I mortality with rolling averages and 
+      year-over-year comparisons."
+    columns:
+      - name: state
+        tests:
+          - not_null
+      - name: mmwr_year_week
+        tests:
+          - not_null
+  
+  - name: fct_pathogen_trends
+    description: "Weekly test positivity by pathogen with z-socres
+      and signal levels."
+    columns:
+      - name: week_end
+        tests:
+          - not_null
+      - name: pathogen
+        tests:
+          - not_null
+      - name: signal_level
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - normal
+                  - watch
+                  - elevated

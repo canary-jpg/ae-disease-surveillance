@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: surveillance
+    database: ae-project-portfolio
+    schema: surveillance_raw
+    description: "CDC surveillance data - morality, test positivity, and P&I deaths"
+
+    tables:
+      - name: mortality_by_state
+        description: "P&I mortality by state and season from CDC NCHS"
+        columns:
+          - name: mmwr_year_week
+            tests:
+              - not_null
+          - name: state
+            tests:
+              - not_null
+      
+      - name: weekly_deaths
+        description: "Weekly provisional deaths by jurisdicition - flu, pneumonia, COVID"
+        columns:
+          - name: week_ending_date
+            tests:
+              - not_null
+          - name: jurisdiction
+            tests:
+              - not_null
+      
+      - name: test_positivity
+        description: "Weekly respiratory pathogen test positivity rates"
+        columns:
+          - name: week_end
+            tests:
+              - not_null
+          - name: pathogen
+            tests:
+              - not_null

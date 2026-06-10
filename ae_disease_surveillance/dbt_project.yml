@@ -1,0 +1,23 @@
+name: 'ae_disease_surveillance'
+version: '1.0.0'
+config-version: 2
+
+profile: 'ae_disease_surveillance'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  ae_disease_surveillance:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: marts

@@ -1,0 +1,12 @@
+region,region_type,region_description,states
+Region 1,HHS Regions,New England,"CT,ME,MA,NH,RI,VT"
+Region 2,HHS Regions,New York/New Jersey,"NJ,NY,PR,VI"
+Region 3,HHS Regions,Mid-Atlantic,"DE,DC,MD,PA,VA,WV"
+Region 4,HHS Regions,Southeast,"AL,FL,GA,KY,MS,NC,SC,TN"
+Region 5,HHS Regions,Midwest,"IL,IN,MI,MN,OH,WI"
+Region 6,HHS Regions,South Central,"AR,LA,NM,OK,TX"
+Region 7,HHS Regions,Central,"IA,KS,MO,NE"
+Region 8,HHS Regions,Mountain,"CO,MT,ND,SD,UT,WY"
+Region 9,HHS Regions,West,"AZ,CA,HI,NV,AS,MP"
+Region 10,HHS Regions,Pacific Northwest,"AK,ID,OR,WA"
+National,National,United States,All
